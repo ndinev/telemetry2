@@ -51,6 +51,7 @@
     <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ajax-loader.gif" />
     <Content Include="index.html" />
     <Content Include="cordova.ios.js">
       <Platform>iOS</Platform>

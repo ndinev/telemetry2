@@ -1,62 +1,58 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-  <head>
-  <title></title>
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
-    <meta charset="utf-8">
+	<head>
+		<title>Raspberry Pi + COSM + Icenoum </title>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" charset="utf-8"></script>
+		<script>
+			document.addEventListener('deviceready', bodyLoad, false); 
 
+			function showImg1() {
 
-    <!-- iPad/iPhone specific css below, add after your main css >
-    <link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />        
-    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />        
-    -->
-    <!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript">
+				var element = document.getElementById("progress1");
+				element.style.display = "none";
+        
+			}
 
+			function showImg2() {
+        
+				var element = document.getElementById("progress2");
+				element.style.display = "none";
+            
+			}
+        
+			function bodyLoad() {
+        
+				var panel1 = document.getElementById("panel1");
+				panel1.innerHTML = '<img id="img1" style="" onload="showImg1()" ' +
+								   'src="https://api.cosm.com/v2/feeds/71187/datastreams/temp1.png?' +
+								   'width=300&height=250&colour=%23f15a24&duration=3hours&title=Home%20temp%2C%203%20hours' +
+								   '&show_axis_labels=true&detailed_grid=true&&scale=manual&min=15&max=35&timezone=Sofia">';
+				var panel2 = document.getElementById("panel2");
+				panel2.innerHTML = '<img id="img2" style="" onload="showImg2()" ' +
+								   'src="https://api.cosm.com/v2/feeds/71187/datastreams/temp1.png?' +
+								   'width=300&height=250&colour=%23f15a24&duration=1week&title=Home%20temp%2C%201%20week' +
+								   '&show_axis_labels=true&detailed_grid=true&&scale=manual&min=15&max=35&timezone=Sofia">';
 
-    // If you want to prevent dragging, uncomment this section
-    /*
-    function preventBehavior(e) 
-    { 
-      e.preventDefault(); 
-    };
-    document.addEventListener("touchmove", preventBehavior, false);
-    */
-    
-    /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
-    see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
-    for more details -jm */
-    /*
-    function handleOpenURL(url)
-    {
-        // TODO: do something with the url passed in.
-    }
-    */
-    
-    function onBodyLoad()
-    {        
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
-    
-    /* When this function is called, Cordova has been initialized and is ready to roll */
-    /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
-    see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
-    for more details -jm */
-    function onDeviceReady()
-    {
-        // do your thing!
-        navigator.notification.alert("Cordova is working")
-    }
-    
-    </script>
-  </head>
-  <body onload="onBodyLoad()">
-    <h1>Hey, it's Cordova!</h1>
-    <ol>
-        <li>Check your console log for any white-list rejection errors.</li>
-        <li>Add your allowed <strong>hosts</strong> in Cordova.plist/ExternalHosts (wildcards OK, don't enter the URL scheme)</li>
-    </ol>
-  </body>
+			}
+     
+		</script>
+	</head>
+	<body>
+
+		<img id="progress1" style="" src="ajax-loader.gif">
+
+		<div id="panel1">
+		</div>
+
+		<img id="progress2" style="" src="ajax-loader.gif">
+
+		<div id="panel2">
+		</div>
+
+		<a href="javascript:bodyLoad();">Refresh</a>
+
+	</body>
+
 </html>
+
