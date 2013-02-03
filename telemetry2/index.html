@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Raspberry Pi + COSM + Icenoum </title>
+		<title>Raspberry Pi + COSM + Icenium </title>
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" charset="utf-8"></script>
 		<script>
@@ -22,24 +22,31 @@
 			}
         
 			function bodyLoad() {
+                
+				var element = document.getElementById("progress1");
+				element.style.display = "";
+				var element2 = document.getElementById("progress2");
+				element2.style.display = "";
         
 				var panel1 = document.getElementById("panel1");
 				panel1.innerHTML = '<img id="img1" style="" onload="showImg1()" ' +
 								   'src="https://api.cosm.com/v2/feeds/71187/datastreams/temp1.png?' +
-								   'width=300&height=250&colour=%23f15a24&duration=3hours&title=Home%20temp%2C%203%20hours' +
-								   '&show_axis_labels=true&detailed_grid=true&&scale=manual&min=15&max=35&timezone=Sofia">';
+								   'width=300&height=250&colour=%23f15a24&duration=3hours&title=Temperature%2C%203%20hours' +
+								   '&show_axis_labels=true&detailed_grid=true&&scale=manual&min=10&max=30&timezone=Sofia">';
 				var panel2 = document.getElementById("panel2");
 				panel2.innerHTML = '<img id="img2" style="" onload="showImg2()" ' +
 								   'src="https://api.cosm.com/v2/feeds/71187/datastreams/temp1.png?' +
-								   'width=300&height=250&colour=%23f15a24&duration=1week&title=Home%20temp%2C%201%20week' +
-								   '&show_axis_labels=true&detailed_grid=true&&scale=manual&min=15&max=35&timezone=Sofia">';
+								   'width=300&height=250&colour=%23f15a24&duration=1week&title=Temperature%2C%201%20week' +
+								   '&show_axis_labels=true&detailed_grid=true&&scale=manual&min=10&max=30&timezone=Sofia">';
 
 			}
+       
+            
      
 		</script>
 	</head>
 	<body>
-
+        <br>
 		<img id="progress1" style="" src="ajax-loader.gif">
 
 		<div id="panel1">
@@ -50,7 +57,7 @@
 		<div id="panel2">
 		</div>
 
-		<a href="javascript:bodyLoad();">Refresh</a>
+		<a href="javascript:bodyLoad();">Refresh charts</a>
 
 	</body>
 
