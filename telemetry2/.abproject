@@ -1,0 +1,46 @@
+{
+  "ProjectGuid": "44886416-587b-413b-9832-180608da5cad",
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "AppIdentifier": "com.telerik.telemetry3",
+  "ProjectName": "telemetry2",
+  "IsRunnable": "true",
+  "AndroidPermissions": [
+    "android.permission.INTERNET",
+    "android.permission.ACCESS_NETWORK_STATE"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "iOSStatusBarStyle": "Default",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "FrameworkVersion": "3.2.0",
+  "CorePlugins": [
+    "org.apache.cordova.device",
+    "org.apache.cordova.splashscreen"
+  ],
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ],
+  "DisplayName": "",
+  "Author": "",
+  "Description": "telemetry2",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "AndroidHardwareAcceleration": "false",
+  "WP8Requirements": [],
+  "WP8Capabilities": [
+    "ID_CAP_NETWORKING"
+  ],
+  "WP8TileTitle": "",
+  "WP8ProductID": "{44886416-587b-413b-9832-180608da5cad}",
+  "WP8PublisherID": "{c1319211-534e-4ce6-8301-77622b4e38e7}",
+  "WP8Publisher": "",
+  "Framework": "Cordova"
+}
