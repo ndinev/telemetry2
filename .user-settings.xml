@@ -7,7 +7,7 @@
         <d2p1:CodesigningIdentities>
           <d2p1:Identity>
             <d2p1:Platform>iOS</d2p1:Platform>
-            <d2p1:Alias>iPhone Developer Icenium QA (Q7VWD99L7J)</d2p1:Alias>
+            <d2p1:Alias>iPhone Developer Dragon Telerikov (GNKAEXW8YQ)</d2p1:Alias>
           </d2p1:Identity>
         </d2p1:CodesigningIdentities>
       </d2p1:Project>
@@ -17,7 +17,7 @@
     <MobileProjectProvisionNames xmlns:d2p1="http://schemas.datacontract.org/2004/07/Telerik.BlackDragon.Common.Data">
       <d2p1:Project>
         <d2p1:Identifier>telemetry2\telemetry2</d2p1:Identifier>
-        <d2p1:MobileProvision>9fb78664-8ef6-4dd2-9b70-44352272fa2b</d2p1:MobileProvision>
+        <d2p1:MobileProvision>92a44599-b1d0-44c6-af36-7793ce8527f2</d2p1:MobileProvision>
       </d2p1:Project>
     </MobileProjectProvisionNames>
   </MobileProjectProvisionSettings>

@@ -1,72 +1,113 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Raspberry Pi + COSM + Icenium </title>
-		<script type="text/javascript" src="cordova.js"></script>
-		<script type="text/javascript" charset="utf-8"></script>
-		<script>
-			document.addEventListener('deviceready', bodyLoad, false); 
+    <head>
+        <title>Raspberry Pi + COSM + Icenium </title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8"></script>
+        
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="xively.js"></script>
+        <script>
+            document.addEventListener('deviceready', bodyLoad, false);
 
-			function showImg1() {
-				var element = document.getElementById("progress1");
-				element.style.display = "none";
-			}
+            function showImg1() {
+                var element = document.getElementById("progress1");
+                element.style.display = "none";
+            }
 
-			function showImg2() {
-				var element = document.getElementById("progress2");
-				element.style.display = "none";
-			}
-			
-			function bodyLoad() {
+            function showImg2() {
+                var element = document.getElementById("progress2");
+                element.style.display = "none";
+            }
+
+            function showImg3() {
+                var element = document.getElementById("progress3");
+                element.style.display = "none";
+            }
+
+            function bodyLoad() {
                 navigator.splashscreen.hide();
-				var w = window,d = document,e = d.documentElement,g = d.getElementsByTagName('body')[0],x = w.innerWidth || e.clientWidth || g.clientWidth,y = w.innerHeight || e.clientHeight || g.clientHeight;
-			
-				chartW = parseInt(x - 30);
-				chartH = parseInt(y / 2 - 30);
-			
-				var element = document.getElementById("progress1");
-				element.style.display = "";
-				var element2 = document.getElementById("progress2");
-				element2.style.display = "";
-			
-				var panel1 = document.getElementById("panel1");
-				panel1.innerHTML = '<img id="img1" style="" onload="showImg1()" ' +
-								   'src="https://api.cosm.com/v2/feeds/71187/datastreams/temp1.png?' +
-								   'width=' + chartW + '&height=' + chartH + 
-								   '&colour=%23f15a24&duration=6hours&title=Temperature%2C%206%20hours' +
-								   '&show_axis_labels=true&detailed_grid=true&&scale=manual&min=10&max=30&timezone=Sofia">';
-				var panel2 = document.getElementById("panel2");
-				panel2.innerHTML = '<img id="img2" style="" onload="showImg2()" ' +
-								   'src="https://api.cosm.com/v2/feeds/71187/datastreams/temp1.png?' +
-								   'width=' + chartW + '&height=' + chartH +
-								   '&colour=%23f15a24&duration=1week&title=Temperature%2C%201%20week' +
-								   '&show_axis_labels=true&detailed_grid=true&&scale=manual&min=10&max=30&timezone=Sofia">';
-				var info = document.getElementById("info");			
-				info.innerHTML = ('v2 update - Screen size: ' + x + ' x ' + y + ';   Chart size: ' + 'width=' + chartW + '&height=' + chartH)
-			}
-			
-            
-     
-		</script>
-	</head>
-	<body>
-		<img id="progress1" style="" src="ajax-loader.gif">
-		
-		<div id="panel1">
-		</div>
-		
-		<img id="progress2" style="" src="ajax-loader.gif">
-		
-		<div id="panel2">
-		</div>
-		
-		<input type="button" value="Refresh" onclick="bodyLoad();" >
-		
-		<div id="info">
-		</div>
-		
-	</body>
-	
+                var w = window,
+                    d = document,
+                    e = d.documentElement,
+                    g = d.getElementsByTagName('body')[0],
+                    x = w.innerWidth || e.clientWidth || g.clientWidth,
+                    y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+                chartW = parseInt(x - 30);
+                chartH = parseInt(y / 2 - 30);
+
+                var element = document.getElementById("progress1");
+                element.style.display = "";
+                var element2 = document.getElementById("progress2");
+                element2.style.display = "";
+                var element3 = document.getElementById("progress3");
+                element3.style.display = "";
+
+                var panel1 = document.getElementById("panel1");
+                panel1.innerHTML = '<img id="img1" style="" onload="showImg1()" ' +
+                                   'src="https://api.cosm.com/v2/feeds/71187/datastreams/temp1.png?' +
+                                   'width=' + chartW + '&height=' + chartH +
+                                   '&colour=%23f15a24&duration=6hours&title=Temperature%2C%206%20hours' +
+                                   '&show_axis_labels=true&detailed_grid=true&&scale=manual&min=10&max=30&timezone=Sofia">';
+                var panel2 = document.getElementById("panel2");
+                panel2.innerHTML = '<img id="img2" style="" onload="showImg2()" ' +
+                                   'src="https://api.cosm.com/v2/feeds/71187/datastreams/temp1.png?' +
+                                   'width=' + chartW + '&height=' + chartH +
+                                   '&colour=%23f15a24&duration=1week&title=Temperature%2C%201%20week' +
+                                   '&show_axis_labels=true&detailed_grid=true&&scale=manual&min=10&max=30&timezone=Sofia">';
+                var info = document.getElementById("info");
+                var panel3 = document.getElementById("panel3");
+                panel3.innerHTML = '<img id="img3" style="" onload="showImg3()" ' +
+                                   'src="https://api.xively.com/v2/feeds/1834524454/datastreams/volt1.png?' +
+                                   'width=' + chartW + '&height=' + chartH +
+                                   '&colour=%230000ff&duration=1day&title=Voltage%208weeks' +
+                                   '&duration=8week&scale=manual&min=5.0&max=8.5&s=4&b=true&g=true&timezone=Sofia">';
+                var info = document.getElementById("info");
+                info.innerHTML = ('v2.8 update - Screen size: ' + x + ' x ' + y + ';   Chart size: ' + 'width=' + chartW + '&height=' + chartH)
+                // get last data from seeduinoGprs
+                xively.setKey("1tE8ub1I0iaIK9rf54I4J8bWSNTcNi4KPl9XG7dU0yJEE2Ui");
+                xively.datastream.get(
+                    1834524454, //id from the tutorial example
+                    "volt1",
+
+                    function (data) {
+                        console.log(data);
+                        var logche = document.getElementById("logche");
+                        logche.innerHTML = ("<br>GMT : " + (data["at"]) +
+                                            "<br>ID : " + (data["id"]) +
+                                            ",  VALUE : " + (data["current_value"]));
+                    });
+            }
+        </script>
+    </head>
+    <body>
+        <img id="progress1" style="" src="ajax-loader.gif">
+        
+        <div id="panel1">
+        </div>
+        
+        <img id="progress2" style="" src="ajax-loader.gif">
+        
+        <div id="panel2">
+        </div>
+        
+        <img id="progress3" style="" src="ajax-loader.gif">
+        
+        <div id="panel3">
+        </div>
+        
+        <input type="button" value="Refresh" onclick="bodyLoad();" >
+        
+        <div id="info">
+        </div>
+        <br>
+        <a href="https://xively.com/feeds/1834524454">SeduinoGPRS feed</a>
+        <div id="logche">
+        </div>
+        
+    </body>
+    
 </html>
 
 		

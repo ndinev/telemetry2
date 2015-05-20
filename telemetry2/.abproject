@@ -42,5 +42,8 @@
   "WP8ProductID": "{44886416-587b-413b-9832-180608da5cad}",
   "WP8PublisherID": "{c1319211-534e-4ce6-8301-77622b4e38e7}",
   "WP8Publisher": "",
-  "Framework": "Cordova"
+  "Framework": "Cordova",
+  "projectVersion": "1",
+  "WP8WindowsPublisherName": "CN=Telerik",
+  "WP8PackageIdentityName": "1234Telerik.com.telerik.telemetry3"
 }
