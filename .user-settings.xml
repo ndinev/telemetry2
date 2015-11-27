@@ -11,6 +11,15 @@
           </d2p1:Identity>
         </d2p1:CodesigningIdentities>
       </d2p1:Project>
+      <d2p1:Project>
+        <d2p1:Identifier>telemetry2</d2p1:Identifier>
+        <d2p1:CodesigningIdentities>
+          <d2p1:Identity>
+            <d2p1:Platform>iOS</d2p1:Platform>
+            <d2p1:Alias>iPhone Developer Icenium QA (B5J669XYBA)</d2p1:Alias>
+          </d2p1:Identity>
+        </d2p1:CodesigningIdentities>
+      </d2p1:Project>
     </MobileProjectCodesigningIdentities>
   </CodesigningIdentitySettings>
   <MobileProjectProvisionSettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -18,6 +27,10 @@
       <d2p1:Project>
         <d2p1:Identifier>telemetry2\telemetry2</d2p1:Identifier>
         <d2p1:MobileProvision>92a44599-b1d0-44c6-af36-7793ce8527f2</d2p1:MobileProvision>
+      </d2p1:Project>
+      <d2p1:Project>
+        <d2p1:Identifier>telemetry2</d2p1:Identifier>
+        <d2p1:MobileProvision>66010f23-0d9d-478e-b0fb-64f1cb3124db</d2p1:MobileProvision>
       </d2p1:Project>
     </MobileProjectProvisionNames>
   </MobileProjectProvisionSettings>
